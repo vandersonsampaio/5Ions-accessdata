@@ -1,0 +1,5 @@
+rootProject.name = '5Ions-accessdata'
+
+include 'accessdata.controller'
+include 'accessdata.service'
+include 'accessdata.model'
