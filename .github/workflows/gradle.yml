@@ -1,0 +1,30 @@
+image: java:8
+
+before_script:
+  - chmod +x gradlew
+  - export IMAGE_TAG=$(echo -en $CI_COMMIT_REF_NAME | tr -c '[:alnum:]_.-' '-')
+
+variables:
+  GRADLE_USER_HOME: "/gradle"
+
+stages:
+  - build
+  
+# ---------------- PIPELINE FOR BRANCHES THAT AREN'T MASTER OR TAGS
+build_and_test_branches:
+  stage: build
+  script:
+     - ./gradlew -Penvironment=DEV
+                  clean
+                  check
+                  --warning-mode all
+                  -s
+
+  except:
+  artifacts:
+    reports:
+      junit:
+        - accessdata.model/build/test-results/**/TEST-*.xml
+        - accessdata.service/build/test-results/**/TEST-*.xml
+        - accessdata.controller/build/test-results/**/TEST-*.xml
+  allow_failure: false
