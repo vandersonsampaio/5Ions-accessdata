@@ -15,7 +15,7 @@ jobs:
     - name: Set Permissions
       env:
         GRADLE_USER_HOME: "/gradle"
-      run: chmod -x ../../gradlew
+      run: chmod -x gradlew
       
     - name: clean and check
       env:
