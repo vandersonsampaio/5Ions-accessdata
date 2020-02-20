@@ -17,9 +17,8 @@ jobs:
     - name: Set Permissions
       run: sudo chmod -x gradlew
       
-    - name: clean and check
-      run: ./gradlew -Penvironment=DEV
-                  clean
-                  check
-                  --warning-mode all
-                  -s
+    - name: Clean
+      run: ./gradlew clean
+    - name: Check
+      run: ./gradlew check
+             
