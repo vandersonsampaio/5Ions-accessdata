@@ -18,7 +18,7 @@ jobs:
       run: sudo chmod -x gradlew
       
     - name: Clean
-      run: ./gradlew clean
+      run: sudo ./gradlew clean
     - name: Check
-      run: ./gradlew check
+      run: sudo ./gradlew check
              
