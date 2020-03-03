@@ -3,9 +3,7 @@ package br.ufsc.ine.ppgcc.model;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.Comparator;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
