@@ -1,25 +1,33 @@
 package br.ufsc.ine.ppgcc.controller;
 
-import br.ufsc.ine.ppgcc.service.ExternalMeasureService;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestMapping;
+import br.ufsc.ine.ppgcc.service.EntityService;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/entities")
 public class EntityController {
 
-    private ExternalMeasureService externalMeasureService;
+    private EntityService entityService;
 
-    public EntityController(ExternalMeasureService externalMeasureService){
-        this.externalMeasureService = externalMeasureService;
+    public EntityController(EntityService entityService){
+        this.entityService = entityService;
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String helloWorld(){
-        return "Hello World Entity " + externalMeasureService.count();
+    @PutMapping(value = "save/annotations", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void putAnnotationEntities(){
+        entityService.saveAnnotationEntities();
+    }
+
+    @PutMapping(value = "save/sentiments", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void putSentiments(Map<Long, Map<Long, Double>> sentiments){
+        entityService.saveSentiments(sentiments);
+    }
+
+    @PutMapping(value = "save/entitiessentiment", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void putEntitiesSentiment(){
+        entityService.saveEntitiesSentiment();
     }
 }
