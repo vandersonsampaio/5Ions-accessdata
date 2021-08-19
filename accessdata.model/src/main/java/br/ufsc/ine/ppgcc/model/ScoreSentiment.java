@@ -7,8 +7,8 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Mention {
+public class ScoreSentiment {
 
-    private String name;
-    private String type;
+    private double score;
+    private double magnitude;
 }

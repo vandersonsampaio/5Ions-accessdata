@@ -1,6 +1,7 @@
 package br.ufsc.ine.ppgcc.controller;
 
-import br.ufsc.ine.ppgcc.service.EntityService;
+import br.ufsc.ine.ppgcc.service.interfaces.IEntityService;
+import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,24 +11,24 @@ import java.util.Map;
 @RequestMapping("/entities")
 public class EntityController {
 
-    private EntityService entityService;
+    private IEntityService entityService;
 
-    public EntityController(EntityService entityService){
+    public EntityController(IEntityService entityService){
         this.entityService = entityService;
     }
 
     @PutMapping(value = "save/annotations", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void putAnnotationEntities(){
-        entityService.saveAnnotationEntities();
+        throw new NotYetImplementedException();
     }
 
     @PutMapping(value = "save/sentiments", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void putSentiments(Map<Long, Map<Long, Double>> sentiments){
-        entityService.saveSentiments(sentiments);
+    public void putSentiments(){
+        throw new NotYetImplementedException();
     }
 
-    @PutMapping(value = "save/entitiessentiment", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "save/entities-sentiment", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void putEntitiesSentiment(){
-        entityService.saveEntitiesSentiment();
+        throw new NotYetImplementedException();
     }
 }

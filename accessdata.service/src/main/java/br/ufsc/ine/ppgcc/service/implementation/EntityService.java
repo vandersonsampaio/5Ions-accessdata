@@ -1,12 +1,13 @@
-package br.ufsc.ine.ppgcc.service;
+package br.ufsc.ine.ppgcc.service.implementation;
 
 import br.ufsc.ine.ppgcc.repository.IEntityRepository;
+import br.ufsc.ine.ppgcc.service.interfaces.IEntityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
 @Service
-public class EntityService {
+public class EntityService implements IEntityService {
 
     private final IEntityRepository iEntityRepository;
 

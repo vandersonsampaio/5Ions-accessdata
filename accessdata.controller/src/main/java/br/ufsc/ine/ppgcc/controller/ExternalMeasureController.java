@@ -1,6 +1,6 @@
 package br.ufsc.ine.ppgcc.controller;
 
-import br.ufsc.ine.ppgcc.service.ExternalMeasureService;
+import br.ufsc.ine.ppgcc.service.implementation.ExternalMeasureService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +17,6 @@ public class ExternalMeasureController {
 
     @GetMapping
     public String getAllMeasure(){
-        return "Count: " + service.count();
+        return "Count: 0";
     }
 }
